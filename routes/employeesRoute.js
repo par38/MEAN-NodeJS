@@ -15,13 +15,6 @@ router
   // //////////    GET ALL
   .get('/', (req, res) => {
 
-    // +++++++++++++++++++++++++++ FONCTIONNE
-    //   EmployeeModel.find()
-    //     .then(employeesList => res.status(200)
-    //       .json(employeesList))
-    //     .catch(err => res.status(500).json({ error: err }))
-    // })
-
     // ++++++++++++ mon GET preferé ! +++++++++++++++++++++++
     EmployeeModel.find((err, employeesList) => {
       if (err) {
@@ -30,6 +23,14 @@ router
       res.status(200).send(employeesList)
     })
   })
+
+  // +++++++++++++++++++++++++++ FONCTIONNE AUSSI
+  //   EmployeeModel.find()
+  //     .then(employeesList => res.status(200)
+  //       .json(employeesList))
+  //     .catch(err => res.status(500).json({ error: err }))
+  // })
+
 
   // //////////    localhost:3003/employees/5dee20441c91064a97159a33
   // //////////    GET SINGLE EMPLOYEE
@@ -101,8 +102,8 @@ router
   })
 
   // //////////    PUT updateOne
-  // //////////    localhost:3003/employees/name/jacques
-  // //////////    params: name + formulaire : position
+  // //////////    localhost:3003/employees/modifier/name/jacques
+  // //////////    params: name      +          formulaire : position
   .put('/modifier/name/:name', (req, res) => {
     // +++++++++++++++++++++++++++ FONCTIONNE
     EmployeeModel.updateOne({ name: req.params.name }, { position: req.body.position }, (err, updatedEmp) => {
@@ -111,8 +112,8 @@ router
     })
   })
 
-  // //////////    DELETE 
-  // //////////    deleteOne
+  // //////////    DELETE findByIdAndDelete
+  // //////////    localhost:3003/employees/supprimer/5dee6e7291b56a6ee9a6bcef
   // //////////    params: id
   // +++++++++++++++++++++++++++ FONCTIONNE
   .delete('/supprimer/:id', (req, res) => {
@@ -124,8 +125,8 @@ router
     })
   })
 
-  // //////////    findOneAndDelete
-  // //////////    localhost:3003/employees/name/jacques
+  // //////////    DELETE deleteOne
+  // //////////    localhost:3003/employees/supprimer/name/jacques
   // //////////    params: name
   // +++++++++++++++++++++++++++ FONCTIONNE
   .delete('/supprimer/name/:name', (req, res) => {

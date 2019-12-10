@@ -10,7 +10,7 @@ const mongoose = require('mongoose')
 
 // module.exports = { EmployeeModel }
 /////////////////////////////////////////////////
-// // + ++++++++++ version officielle : schema MVC ++++++++++
+// // + ++++++++++ version officielle : schéma MVC ++++++++++
 const employeeSchema = mongoose.Schema({
   name: String,
   position: String,
