@@ -2,13 +2,13 @@ const express = require('express')
 // const Router = express.Router()
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
-// const cors = require('cors')
-const mongoose = require('mongoose')
+const cors = require('cors')
+// const mongoose = require('mongoose')
 
 require('dotenv').config()
 
 // const connectDB = require('./config/db')
-const db = require('./config/db')
+// const db = require('./config/db')
 const app = express()
 const employeesRoute = require('./routes/employeesRoute')
 
@@ -18,7 +18,13 @@ const employeesRoute = require('./routes/employeesRoute')
 // mongoose.connect(connectDB.uri, connectDB.client).catch((error) => console.log(JSON.stringify(error))
 // )
 
-// app.use(cors())
+// / Fonctionne : limite l'accès au seul front
+// / Danger : si le port est occupé et passe 4201, il ne fonctionne plus !!
+// app.use(cors({ origin: 'http://localhost:4200' }))
+
+app.use(cors({ origin: 'http://localhost:4200' }))
+
+
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
