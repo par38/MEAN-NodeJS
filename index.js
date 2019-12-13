@@ -22,7 +22,7 @@ const employeesRoute = require('./routes/employeesRoute')
 // / Danger : si le port est occupé et passe 4201, il ne fonctionne plus !!
 // app.use(cors({ origin: 'http://localhost:4200' }))
 
-app.use(cors({ origin: 'http://localhost:4200' }))
+app.use(cors())
 
 
 app.use(morgan('dev'))
