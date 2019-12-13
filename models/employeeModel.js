@@ -15,7 +15,8 @@ const employeeSchema = mongoose.Schema({
   name: String,
   position: String,
   tel: String,
-  office: String
+  office: String,
+  salary: Number
 });
 
 // où Impiegati est la collection
