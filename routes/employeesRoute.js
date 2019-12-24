@@ -48,17 +48,17 @@ router
   .post('/add', (req, res) => {
     // +++++++++++++++++++++++++++ FONCTIONNE
     // ++++++++ req.body détaillé ++++++++++++
-    // let emp = new EmployeeModel({
-    //   name: req.body.name,
-    //   position: req.body.position,
-    //   office: req.body.office,
-    //   salary: req.body.salary
-    // })
+    let emp = new EmployeeModel({
+      name: req.body.name,
+      position: req.body.position,
+      office: req.body.office,
+      salary: req.body.salary
+    })
 
-    // +++++++++++++++++++++++++++ FONCTIONNE
-    // ++++++++ req.body global ++++++++++++
-    // ++++++++ en front-end, formulaire : name, position, office, salary
-    let emp = new EmployeeModel(req.body)
+    // ----------sans champs, ne fonctionne pas en front
+    //---------- req.body global ++++++++++++
+    //-
+    // -let emp = new EmployeeModel(req.body)
 
     emp.save((err) => {
       if (err) { res.send(err) }
